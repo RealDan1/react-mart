@@ -4,17 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux'; // import Provider from react-redux
+import store from './store/store'; // import the Redux store
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            {' '}
+            {/* !!!!!!!!!!!!!!!!!! provider wraps the whole app to provide access to redux store */}
+            <BrowserRouter>
+                {' '}
+                {/* BrowserRouter enables routing in our app */}
+                <App /> {/* main app component that includes all pages */}
+            </BrowserRouter>
+        </Provider>
+    </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Measuring performance - optional for analytics
 reportWebVitals();

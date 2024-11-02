@@ -1,80 +1,49 @@
-import { useFormik } from 'formik';
+// !!!!!!!!!!!!!!!!!! home component with login form that uses redux for persisting login
 
-export default function Login() {
-  const validate = (values) => {
-    const errors = {};
+import React, { useRef, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../store/userSlice';
 
-    if (!values.password) {
-      errors.password = 'Required';
-    } else if (values.password.length < 8) {
-      errors.password = 'Password must be more than 8 Characters long';
-    }
+export default function Home() {
+    const dispatch = useDispatch(); // allows dispatching actions to redux store
+    const { isLoggedIn, username } = useSelector((state) => state.user); // get login state and username from redux
+    const inputRef = useRef(); // reference to focus input on load
+    const [userInput, setUserInput] = useState(''); // local state to store user input
+    const validUsers = { email: 'user@example.com', password: 'password123' }; // hardcoded valid user credentials
 
-    if (!values.email) {
-      errors.email = 'Required';
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
-      errors.email = 'Invalid email address';
-    }
+    useEffect(() => {
+        inputRef.current.focus(); // focus input on load
+    }, []);
 
-    return errors;
-  };
+    const handleLogin = () => {
+        if (userInput === validUsers.email) {
+            // checks if input matches the valid email
+            dispatch(login({ username: 'johnDoe' })); // dispatch login with a fixed username for now
+        } else {
+            alert('invalid login'); // shows alert if login fails
+        }
+    };
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validate,
-    onSubmit: (values) => {
-      console.log(
-        'Login successful \nEmail:' +
-          values.email +
-          '\nPassword:' +
-          values.password
-      );
-    },
-  });
-
-  return (
-    // Note the use of the formik object below
-    <form className="login-form" onSubmit={formik.handleSubmit}>
-      {' '}
-      {/* // Submit handler */}
-      <div className="login-container">
-        <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        {/* // Tweaked error message display logic */}
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
-      </div>
-      <div className="login-container">
-        <label htmlFor="password">Password:</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
-        {/* // Tweaked error message display logic */}
-        {formik.touched.password && formik.errors.password ? (
-          <div>
-            <i>{formik.errors.password}</i>
-          </div>
-        ) : null}
-      </div>
-      <button type="submit">Login</button>
-    </form>
-  );
+    return (
+        <div className="home">
+            {isLoggedIn ? (
+                <div className="welcome-paragraph">
+                    <h1>Welcome {username}</h1> {/* display welcome message when logged in */}
+                </div>
+            ) : (
+                <div className="login-container">
+                    <label htmlFor="login-input">user (email): </label> {/* input for user email */}
+                    <input
+                        id="login-input"
+                        type="text"
+                        value={userInput}
+                        ref={inputRef}
+                        onChange={(e) => setUserInput(e.target.value)} // sets input value to state
+                    />
+                    <button onClick={handleLogin}>login</button> {/* button to login user */}
+                    <p>valid user email: {validUsers.email}</p> {/* displays valid email for easy testing */}
+                </div>
+            )}
+        </div>
+    );
 }

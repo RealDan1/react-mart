@@ -1,54 +1,43 @@
-import React from 'react';
-import { useState, useEffect, useRef } from 'react';
+// !!!!!!!!!!!!!!!!!! home component with login form that uses redux for persisting login
+
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../store/userSlice';
 
 export default function Home() {
-  //auto focus the user input
-  const inputRef = useRef();
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
+    const dispatch = useDispatch(); // allows dispatching actions to redux store
+    const { isLoggedIn, username } = useSelector((state) => state.user); // get login state and username from redux
+    const [userInput, setUserInput] = useState(''); // local state to store user input
+    const validUsers = { email: 'user@example.com', password: 'password123' }; // hardcoded valid user credentials
 
-  //declare user and loggedIn state variables
-  const [user, setUser] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const handleLogin = () => {
+        if (userInput === validUsers.email) {
+            // checks if input matches the valid email
+            dispatch(login({ username: 'johnDoe' })); // dispatch login with a fixed username for now
+        } else {
+            alert('invalid login'); // shows alert if login fails
+        }
+    };
 
-  //change login state so the component re-renders and loads the welcome
-  const handleLogin = () => {
-    if (user !== '') {
-      setIsLoggedIn(true);
-    }
-  };
-
-  const handleLogout = () => {
-    //just change the value to false and the ternary will just switch to the other statement (result: the user has log back in to see the welcome)
-    setIsLoggedIn(false);
-    //reset userName since user must type it in again(so it doesn't persist upon logout)
-    setUser('');
-  };
-
-  return (
-    // only display the Welcome if user has clicked login and entered a value into input field
-    <div className="home">
-      {isLoggedIn && user !== '' ? (
-        <div className="welcome-paragraph">
-          <h1>Welcome {user} </h1>
-          <button onClick={handleLogout}>Logout</button>
+    return (
+        <div className="home">
+            {isLoggedIn ? (
+                <div className="welcome-paragraph">
+                    <h1>Welcome {username}</h1> {/* display welcome message when logged in */}
+                </div>
+            ) : (
+                <div className="login-container">
+                    <label htmlFor="login-input">user (email): </label> {/* input for user email */}
+                    <input
+                        id="login-input"
+                        type="text"
+                        value={userInput}
+                        onChange={(e) => setUserInput(e.target.value)} // sets input value to state
+                    />
+                    <button onClick={handleLogin}>login</button> {/* button to login user */}
+                    <p>valid user email: {validUsers.email}</p> {/* displays valid email for easy testing */}
+                </div>
+            )}
         </div>
-      ) : (
-        <div className="login-container">
-          <label htmlFor="login-input">User: </label>
-          <input
-            id="login-input"
-            type="text"
-            value={user}
-            ref={inputRef}
-            onChange={(e) => {
-              setUser(e.target.value);
-            }}
-          />
-          <button onClick={handleLogin}>Login</button>
-        </div>
-      )}
-    </div>
-  );
+    );
 }
