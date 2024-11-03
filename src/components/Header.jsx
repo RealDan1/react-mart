@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
-    const { username, isLoggedIn } = useSelector((state) => state.user); // get username and login state from redux
+    const { currentUser, isLoggedIn } = useSelector((state) => state.user); // get current user and login state from Redux
 
     return (
         <header className="header">
@@ -23,7 +23,8 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
-            {isLoggedIn && <p>welcome, {username}</p>} {/* show welcome and username if user is logged in */}
+            {isLoggedIn && currentUser && <p>welcome, {currentUser.username}</p>}{' '}
+            {/* show welcome and username if user is logged in */}
         </header>
     );
 }
