@@ -9,7 +9,7 @@ export default function Header() {
 
     return (
         <header className="header">
-            <h1 className="logo">shopMate</h1> {/* simple logo for the app */}
+            <h1 className="logo">ReactMart</h1> {/* simple logo for the app */}
             <nav>
                 <ul>
                     <li>

@@ -1,21 +1,37 @@
-// !!!!!!!!!!!!!!!!!! create a redux slice to store the username and login state so we can use it across different pages
+// !!!!!!!!!!!!!!!!!! create a redux slice to store the user credentials and login state
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const userSlice = createSlice({
-    name: 'user', // slice name for identifying
-    initialState: { username: '', isLoggedIn: false }, // initial values, blank username and login state false
+    name: 'user', // name of the slice
+    initialState: {
+        users: [
+            {
+                username: 'jamesmay@topgear.com', // hardcoded default email
+                password: '12345', // hardcoded password
+            },
+        ],
+        isLoggedIn: false, // login state
+        currentUser: null, // stores currently logged-in user info
+    },
     reducers: {
         login: (state, action) => {
-            const { username } = action.payload; // grab the username from action payload
-            state.username = username; // save username in redux state so it can be accessed anywhere
-            state.isLoggedIn = true; // set login state to true because user has logged in
+            const { username, password } = action.payload; // payload contains the username and password
+            const foundUser = state.users.find((user) => user.username === username && user.password === password); // checks if the entered credentials match any in the Redux store
+
+            if (foundUser) {
+                state.isLoggedIn = true; // login successful, set isLoggedIn to true
+                state.currentUser = foundUser; // set the logged-in user details
+            } else {
+                alert('Invalid credentials'); // alert user if login fails
+            }
         },
         logout: (state) => {
-            state.username = ''; // clear username when user logs out
-            state.isLoggedIn = false; // reset login state to false so the user isn’t logged in anymore
+            state.isLoggedIn = false; // reset login state
+            state.currentUser = null; // clear current user info on logout
         },
     },
 });
 
-export const { login, logout } = userSlice.actions; // exporting actions so we can dispatch them in components
-export default userSlice.reducer; // exporting the reducer to use in our store
+export const { login, logout } = userSlice.actions; // exporting login and logout actions
+export default userSlice.reducer; // exporting reducer for store configuration
