@@ -1,4 +1,5 @@
 /* Base styles */
+/* ============================================ */
 body {
     font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
     margin: 0;
@@ -8,6 +9,7 @@ body {
 }
 
 /* Header and Navigation */
+/* ============================================ */
 .header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -51,6 +53,7 @@ nav ul li a:hover {
 }
 
 /* Products Section */
+/* ============================================ */
 .products {
     padding: 32px;
     display: flex;
@@ -71,6 +74,7 @@ nav ul li a:hover {
     background-color: #fff !important;
     color: #212529 !important;
     margin: 16px !important;
+    padding-bottom: 10px;
 }
 
 .product-card:hover {
@@ -78,15 +82,15 @@ nav ul li a:hover {
 }
 
 .product-card img {
-    object-fit: cover;
-    height: 200px;
-}
-
-.product-card button {
-    margin-top: 16px;
     width: 100%;
 }
 
+.product-card button {
+    margin: 16px;
+    width: 50%;
+}
+/* cart section */
+/* ============================================ */
 .cart {
     position: fixed;
     top: 20px;
@@ -130,6 +134,7 @@ nav ul li a:hover {
 }
 
 /* Form Styles */
+/* ============================================ */
 .register-form {
     max-width: 500px;
     margin: 32px auto;
@@ -170,6 +175,9 @@ nav ul li a:hover {
     display: block;
     margin-bottom: 16px;
 }
+
+/* home section */
+/* ============================================ */
 
 .home {
     max-width: 800px;
