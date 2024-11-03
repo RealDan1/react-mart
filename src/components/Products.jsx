@@ -1,10 +1,7 @@
-// !!!!!!!!!!!!!!!!!! products component to display all products and add to cart using redux
-
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../store/cartSlice';
 import { Card, Button, CardGroup } from 'react-bootstrap';
-import DropDown from './DropDown';
 
 function Products() {
     const dispatch = useDispatch(); // useDispatch to add items to cart
@@ -16,7 +13,7 @@ function Products() {
 
     return (
         <div className="products">
-            <CardGroup>
+            <CardGroup className="card-group">
                 {products.map((item) => (
                     <Card
                         key={item.title}
@@ -34,8 +31,6 @@ function Products() {
                             <Card.Title>{item.title}</Card.Title> {/* product title */}
                             <Card.Text>Price: R{item.price}</Card.Text> {/* price */}
                             <Card.Text>{item.description}</Card.Text> {/* description */}
-                            <DropDown color1={item.color[0]} color2={item.color[1]} color3={item.color[2]} />{' '}
-                            {/* color dropdown */}
                             <Button variant="primary" onClick={() => handleAddToCart(item)}>
                                 Add to Cart
                             </Button>{' '}

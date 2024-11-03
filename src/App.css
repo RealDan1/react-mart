@@ -57,6 +57,12 @@ nav ul li a:hover {
     justify-content: center;
 }
 
+.card-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .product-card {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
     border: 1px solid #dee2e6 !important;
