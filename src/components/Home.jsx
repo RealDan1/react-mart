@@ -1,5 +1,3 @@
-// !!!!!!!!!!!!!!!!!! home component with login form that authenticates against redux data
-
 import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/userSlice';
@@ -7,15 +5,9 @@ import { login } from '../store/userSlice';
 export default function Home() {
     const dispatch = useDispatch(); // allows dispatching actions to Redux store
     const { isLoggedIn, currentUser } = useSelector((state) => state.user); // get login state and user info from Redux
-    // const inputRef = useRef(); // reference to focus input on load
 
-    // local state for form inputs
     const [userInputEmail, setUserInputEmail] = useState(''); // state for email input
     const [userInputPassword, setUserInputPassword] = useState(''); // state for password input
-
-    // useEffect(() => {
-    //     inputRef.current.focus(); // focus on email input when page loads
-    // }, []);
 
     const handleLogin = () => {
         // dispatch login with entered username and password

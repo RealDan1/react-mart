@@ -1,5 +1,3 @@
-// !!!!!!!!!!!!!!!!!! login component to authenticate user with email and password from redux store
-
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/userSlice';
@@ -46,7 +44,7 @@ export default function Login() {
                         onChange={(e) => setUserInputPassword(e.target.value)} // update state with entered password
                     />
                     <button onClick={handleLogin}>Login</button> {/* button to trigger login */}
-                    <p>Use "jamesmay@topgear.com" / "12345" for login</p> {/* Display valid credentials for testing */}
+                    <p>Use "JamesMay" / "12345" for login</p> {/* Display valid credentials for testing */}
                 </div>
             )}
         </div>

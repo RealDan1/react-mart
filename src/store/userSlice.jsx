@@ -1,13 +1,11 @@
-// !!!!!!!!!!!!!!!!!! create a redux slice to store the user credentials and login state
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const userSlice = createSlice({
-    name: 'user', // name of the slice
+    name: 'user',
     initialState: {
         users: [
             {
-                username: 'jamesmay@topgear.com', // hardcoded default email
+                username: 'JamesMay', // hardcoded email
                 password: '12345', // hardcoded password
             },
         ],
@@ -33,5 +31,5 @@ const userSlice = createSlice({
     },
 });
 
-export const { login, logout } = userSlice.actions; // exporting login and logout actions
-export default userSlice.reducer; // exporting reducer for store configuration
+export const { login, logout } = userSlice.actions;
+export default userSlice.reducer;

@@ -1,5 +1,3 @@
-// !!!!!!!!!!!!!!!!!! redux slice to handle all products and the cart
-
 import { createSlice } from '@reduxjs/toolkit';
 import beltImage from '../assets/images/belt.jpeg';
 import dressImage from '../assets/images/dress.jpeg';
@@ -18,28 +16,27 @@ const initialState = {
             title: 'Sneakers',
             description: 'Running Sneakers',
             price: 999.99,
-            color: ['black', 'white', 'red'],
+
             src: sneakersImage,
         },
         {
             title: 'T-shirt',
             description: 'Cotton T-shirt',
             price: 199.99,
-            color: ['blue', 'gray', 'green'],
+
             src: shirtImage,
         },
         {
             title: 'Jacket',
             description: 'Leather Jacket',
             price: 1499.99,
-            color: ['brown', 'black', 'tan'],
+
             src: jacketImage,
         },
         {
             title: 'Jeans',
             description: 'Denim Jeans',
             price: 799.99,
-            color: ['blue', 'black', 'gray'],
             src: jeansImage,
         },
         { title: 'Hat', description: 'Wool Hat', price: 249.99, color: ['red', 'navy', 'beige'], src: hatImage },
@@ -47,25 +44,24 @@ const initialState = {
             title: 'Socks',
             description: 'Cotton Socks',
             price: 59.99,
-            color: ['white', 'black', 'gray'],
             src: socksImage,
         },
-        { title: 'Dress', description: 'Silk Dress', price: 1299.99, color: ['red', 'black', 'gold'], src: dressImage },
+        { title: 'Dress', description: 'Silk Dress', price: 1299.99, src: dressImage },
         {
             title: 'Watch',
             description: 'Analog Wrist Watch',
             price: 4999.99,
-            color: ['silver', 'gold', 'black'],
+
             src: watchImage,
         },
         {
             title: 'Sunglasses',
             description: 'Polarized Sunglasses',
             price: 899.99,
-            color: ['black', 'brown', 'gray'],
+
             src: sunglassesImage,
         },
-        { title: 'Belt', description: 'Leather Belt', price: 299.99, color: ['black', 'brown', 'tan'], src: beltImage },
+        { title: 'Belt', description: 'Leather Belt', price: 299.99, src: beltImage },
     ],
     cart: [], // initially, cart is empty
 };
