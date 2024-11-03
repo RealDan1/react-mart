@@ -1,5 +1,3 @@
-// !!!!!!!!!!!!!!!!!! header component to show logo, nav links, and display username when logged in
-
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -9,7 +7,7 @@ export default function Header() {
 
     return (
         <header className="header">
-            <h1 className="logo">ReactMart</h1> {/* simple logo for the app */}
+            <h1 className="logo">ReactMart</h1>
             <nav>
                 <ul>
                     <li>
@@ -23,7 +21,7 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
-            {isLoggedIn && currentUser && <p>welcome, {currentUser.username}</p>}{' '}
+            {isLoggedIn && currentUser && <p>Welcome, {currentUser.username}</p>}{' '}
             {/* show welcome and username if user is logged in */}
         </header>
     );

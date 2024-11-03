@@ -21,7 +21,7 @@ const userSlice = createSlice({
                 state.isLoggedIn = true; // login successful, set isLoggedIn to true
                 state.currentUser = foundUser; // set the logged-in user details
             } else {
-                alert('Invalid credentials'); // alert user if login fails
+                alert('Wrong username or password.'); // alert user if login fails
             }
         },
         logout: (state) => {
