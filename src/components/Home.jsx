@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/userSlice';
 
-export default function Home() {
+function Home() {
     const dispatch = useDispatch(); // allows dispatching actions to Redux store
     const { isLoggedIn, currentUser } = useSelector((state) => state.user); // get login state and user info from Redux
 
@@ -44,3 +44,4 @@ export default function Home() {
         </div>
     );
 }
+export default Home;

@@ -2,39 +2,39 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/userSlice';
 
-export default function Login() {
-    const dispatch = useDispatch(); // allows dispatching actions to Redux store
-    const { isLoggedIn, currentUser } = useSelector((state) => state.user); // get login state and user info from Redux
+function Login() {
+    const dispatch = useDispatch();
+    const { isLoggedIn, currentUser } = useSelector((state) => state.user);
 
     // local state for form inputs
-    const [userInputEmail, setUserInputEmail] = useState(''); // state for email input
+    const [userInputUsername, setUserInputUsername] = useState(''); // state for username input
     const [userInputPassword, setUserInputPassword] = useState(''); // state for password input
-    const inputRef = useRef(); // reference to focus on email input on load
+    const inputRef = useRef();
 
     useEffect(() => {
-        inputRef.current.focus(); // focus email input on component load
+        inputRef.current.focus(); // focus username input on component load
     }, []);
 
     const handleLogin = () => {
         // dispatch login with entered username and password
-        dispatch(login({ username: userInputEmail, password: userInputPassword }));
+        dispatch(login({ username: userInputUsername, password: userInputPassword }));
     };
 
     return (
         <div className="home">
             {isLoggedIn ? (
                 <div className="welcome-paragraph">
-                    <h1>Welcome {currentUser.username}</h1> {/* display welcome message when logged in */}
+                    <h1>User: {currentUser.username}</h1> {/* display welcome message when logged in */}
                 </div>
             ) : (
                 <div className="login-container">
-                    <label htmlFor="login-input-email">Email:</label> {/* input for email */}
+                    <label htmlFor="login-input-username">Username:</label> {/* input for username */}
                     <input
-                        id="login-input-email"
+                        id="login-input-username"
                         type="text"
-                        value={userInputEmail}
+                        value={userInputUsername}
                         ref={inputRef}
-                        onChange={(e) => setUserInputEmail(e.target.value)} // update state with entered email
+                        onChange={(e) => setUserInputUsername(e.target.value)} // update state with entered username
                     />
                     <label htmlFor="login-input-password">Password:</label> {/* input for password */}
                     <input
@@ -50,3 +50,5 @@ export default function Login() {
         </div>
     );
 }
+
+export default Login;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+function Header() {
     const { currentUser, isLoggedIn } = useSelector((state) => state.user); // get current user and login state from Redux
 
     return (
@@ -26,3 +26,4 @@ export default function Header() {
         </header>
     );
 }
+export default Header;

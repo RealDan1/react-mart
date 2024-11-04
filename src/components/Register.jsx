@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 
-export default function Register() {
+function Register() {
     // function to check if user input is valid
     const validate = (values) => {
         const errors = {};
@@ -192,3 +192,4 @@ export default function Register() {
         </form>
     );
 }
+export default Register;

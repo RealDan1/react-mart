@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Card } from 'react-bootstrap';
 
-export default function Cart() {
+function Cart() {
     const cartItems = useSelector((state) => state.cart.cart); // get cart items from redux
 
     let totalPrice = 0;
@@ -46,3 +46,4 @@ export default function Cart() {
         </div>
     );
 }
+export default Cart;

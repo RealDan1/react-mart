@@ -1,5 +1,3 @@
-// !!!!!!!!!!!!!!!!!! main app component to show header, cart, and routes for each page
-
 import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -11,12 +9,12 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
     return (
         <div className="App">
-            <Header /> {/* displays the header at the top of every page */}
-            <Cart /> {/* displays cart to show items added across pages */}
+            <Header />
+            <Cart />
             <Routes>
-                <Route path="/" element={<Home />} /> {/* home page route */}
-                <Route path="/register" element={<Register />} /> {/* register page route */}
-                <Route path="/products" element={<Products />} /> {/* products page route */}
+                <Route path="/" element={<Home />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/products" element={<Products />} />
             </Routes>
         </div>
     );
