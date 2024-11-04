@@ -88,6 +88,7 @@ nav ul li a:hover {
     padding-bottom: 16px;
     font-family: 'Roboto', sans-serif;
     transition: all 0.2s ease-in-out;
+    min-width: 300px !important;
 }
 
 .product-card .card-body {
@@ -186,6 +187,48 @@ nav ul li a:hover {
     font-size: 22px;
 }
 
+/* Shipment Section */
+/* ============================================ */
+.shipment-section {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.shipment-section h3 {
+    font-size: 18px;
+    color: #0d6efd;
+    margin-bottom: 12px;
+}
+
+.shipment-select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.help-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #17a2b8;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.help-button:hover {
+    background-color: #138496;
+}
+
 /* Form Styles */
 /* ============================================ */
 .register-form {
@@ -266,7 +309,7 @@ nav ul li a:hover {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 24px;
+    margin-bottom: 70px;
 }
 
 .reactmart-summary h2 {

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import DeliveryModal from './DeliveryModal';
 
 function Cart() {
     const cartItems = useSelector((state) => state.cart.cart); // get cart items from redux
+    const [shipmentMethod, setShipmentMethod] = useState(''); // state for selected shipment method
+    const [showModal, setShowModal] = useState(false); // state for controlling the modal visibility
 
     let totalPrice = 0;
 
@@ -14,6 +17,14 @@ function Cart() {
 
     // Round totalPrice to nearest two decimals
     totalPrice = Math.round(totalPrice * 100) / 100;
+
+    const handleShipmentChange = (e) => {
+        setShipmentMethod(e.target.value);
+    };
+
+    const toggleModal = () => {
+        setShowModal(!showModal);
+    };
 
     return (
         <div className="cart">
@@ -35,6 +46,25 @@ function Cart() {
                             <h2>Total Price: R{totalPrice}</h2>
                         </div>
                     )}
+
+                    {/* Shipment Selection */}
+                    {cartItems.length > 0 && (
+                        <div className="shipment-section">
+                            <h3>Choose Your Shipment Method</h3>
+                            <select value={shipmentMethod} onChange={handleShipmentChange} className="shipment-select">
+                                <option value="">Select a method</option>
+                                <option value="standard">Standard: R100</option>
+                                <option value="expedited">Expedited: R150</option>
+                                <option value="nextDay">Next Day: R200 (when available)</option>
+                            </select>
+                            <Button variant="info" className="help-button" onClick={toggleModal}>
+                                Help
+                            </Button>
+                        </div>
+                    )}
+
+                    {/* Modal for Shipment Help */}
+                    {showModal && <DeliveryModal onClose={toggleModal} />}
                 </>
             )}
         </div>

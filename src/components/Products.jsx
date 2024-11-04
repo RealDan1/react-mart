@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../store/cartSlice';
 import { Card, Button, CardGroup } from 'react-bootstrap';
