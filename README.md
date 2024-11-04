@@ -1,3 +1,19 @@
+# ReactMart
+
+ReactMart is a beginner-friendly e-commerce web application built with React. The app lets users browse products, add them to their cart, choose a shipment method, and register or log in to manage their shopping experience. It’s designed for a smooth and intuitive shopping experience.
+
+## Getting Started
+
+1. **Install dependencies**:
+   Make sure to install the required dependencies in bash.
+
+    npm install
+
+2. **Run the server**:
+   Start the node server in bash
+
+    npm start
+
 ## Using the App
 
 -   **Browse Products**:
