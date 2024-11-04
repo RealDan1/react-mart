@@ -188,7 +188,9 @@ function Register() {
                     <i>{formik.errors.confirmPassword}</i>
                 </div>
             ) : null}
-            <button type="submit">Login</button>
+            <button type="submit" className="register-button">
+                Login
+            </button>
         </form>
     );
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/userSlice';
 
 function Home() {
-    const dispatch = useDispatch(); // allows dispatching actions to Redux store
+    const dispatch = useDispatch();
     const { isLoggedIn, currentUser } = useSelector((state) => state.user); // get login state and user info from Redux
 
     const [userInputUsername, setUserInputUsername] = useState(''); // state for username input
@@ -36,8 +36,13 @@ function Home() {
                         value={userInputPassword}
                         onChange={(e) => setUserInputPassword(e.target.value)} // update state with entered password
                     />
-                    <button onClick={handleLogin}>Login</button> {/* button to trigger login */}
-                    <p>Use "JamesMay" / "12345" for login</p> {/* Display valid credentials for testing */}
+                    <button onClick={handleLogin} className="login-button">
+                        Login
+                    </button>
+                    <p>
+                        <i>Use "JamesMay" / "12345" for login</i>
+                    </p>{' '}
+                    {/* Display valid credentials for testing */}
                 </div>
             )}
         </div>
