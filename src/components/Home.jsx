@@ -17,19 +17,16 @@ function Home() {
     return (
         <div className="home">
             <div className="left-section">
-                {/* !!CHANGE!! New section for ReactMart summary */}
                 <section className="reactmart-summary">
                     <h2>Welcome to ReactMart</h2>
                     <p>
-                        Based in the heart of Cape Town, South Africa, ReactMart is your premier online destination for
-                        quality electronics and lifestyle products. We pride ourselves on a curated selection of the
-                        latest gadgets, top-notch customer service, and lightning-fast delivery. Whether you’re shopping
-                        for high-performance headphones or the latest in fitness tracking tech, ReactMart has you
-                        covered.
+                        Based in Cape Town, South Africa, ReactMart is your premier online destination for quality
+                        electronics and lifestyle products. We pride ourselves on a curated selection of the latest
+                        gadgets, top-notch customer service, and lightning-fast delivery. Whether you’re shopping for
+                        high-performance headphones or the latest in fitness tracking tech, ReactMart has you covered.
                     </p>
                 </section>
 
-                {/* !!CHANGE!! New section for customer reviews */}
                 <section className="customer-reviews">
                     <h2>What Our Customers Are Saying</h2>
                     <div className="review">
