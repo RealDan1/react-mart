@@ -6,12 +6,12 @@ function Home() {
     const dispatch = useDispatch(); // allows dispatching actions to Redux store
     const { isLoggedIn, currentUser } = useSelector((state) => state.user); // get login state and user info from Redux
 
-    const [userInputEmail, setUserInputEmail] = useState(''); // state for email input
+    const [userInputUsername, setUserInputUsername] = useState(''); // state for username input
     const [userInputPassword, setUserInputPassword] = useState(''); // state for password input
 
     const handleLogin = () => {
         // dispatch login with entered username and password
-        dispatch(login({ username: userInputEmail, password: userInputPassword }));
+        dispatch(login({ username: userInputUsername, password: userInputPassword }));
     };
 
     return (
@@ -22,13 +22,12 @@ function Home() {
                 </div>
             ) : (
                 <div className="login-container">
-                    <label htmlFor="login-input-email">Email:</label> {/* input for user email */}
+                    <label htmlFor="login-input-username">Username:</label> {/* input for user username */}
                     <input
-                        id="login-input-email"
+                        id="login-input-username"
                         type="text"
-                        value={userInputEmail}
-                        // ref={inputRef}
-                        onChange={(e) => setUserInputEmail(e.target.value)} // update state with entered email
+                        value={userInputUsername}
+                        onChange={(e) => setUserInputUsername(e.target.value)} // update state with entered username
                     />
                     <label htmlFor="login-input-password">Password:</label> {/* input for password */}
                     <input
@@ -38,7 +37,7 @@ function Home() {
                         onChange={(e) => setUserInputPassword(e.target.value)} // update state with entered password
                     />
                     <button onClick={handleLogin}>Login</button> {/* button to trigger login */}
-                    <p>Use "jamesmay@topgear.com" / "12345" for login</p> {/* Display valid credentials for testing */}
+                    <p>Use "JamesMay" / "12345" for login</p> {/* Display valid credentials for testing */}
                 </div>
             )}
         </div>

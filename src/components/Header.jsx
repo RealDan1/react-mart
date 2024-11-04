@@ -1,13 +1,18 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 function Header() {
     const { currentUser, isLoggedIn } = useSelector((state) => state.user); // get current user and login state from Redux
 
     return (
         <header className="header">
-            <h1 className="logo">ReactMart</h1>
+            <div className="logo-user">
+                <h1 className="logo">ReactMart</h1>
+                {isLoggedIn && currentUser && <p className="user">User: {currentUser.username}</p>}{' '}
+            </div>
+
+            {/* show welcome and username if user is logged in */}
             <nav>
                 <ul>
                     <li>
@@ -21,8 +26,6 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-            {isLoggedIn && currentUser && <p>Welcome, {currentUser.username}</p>}{' '}
-            {/* show welcome and username if user is logged in */}
         </header>
     );
 }
