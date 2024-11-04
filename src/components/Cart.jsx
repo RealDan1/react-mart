@@ -16,28 +16,22 @@ function Cart() {
     totalPrice = Math.round(totalPrice * 100) / 100;
 
     return (
-        <div className="cart text-light">
+        <div className="cart">
             <h2>Shopping Cart</h2>
             {cartItems.length === 0 ? (
                 <p>No items in cart</p>
             ) : (
                 <>
                     {cartItems.map((item, index) => (
-                        <Card
-                            key={index}
-                            className="cart-item"
-                            style={{ marginBottom: '10px', backgroundColor: '#444' }}
-                        >
+                        <Card key={index} className="cart-item">
                             <Card.Body>
                                 <Card.Title>{item.title}</Card.Title>
                                 <Card.Text>Price: R{item.price}</Card.Text>
                             </Card.Body>
                         </Card>
                     ))}
-                    <br />
                     {totalPrice > 0 && (
-                        <div className="total-price" style={{ marginTop: '20px', color: '#fff' }}>
-                            {' '}
+                        <div className="total-price">
                             <h2>Total Price: R{totalPrice}</h2>
                         </div>
                     )}
@@ -46,4 +40,5 @@ function Cart() {
         </div>
     );
 }
+
 export default Cart;

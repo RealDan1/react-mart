@@ -24,6 +24,9 @@ function Header() {
                     <li>
                         <Link to="/products">products</Link>
                     </li>
+                    <li>
+                        <Link to="/cart">cart</Link>
+                    </li>
                 </ul>
             </nav>
         </header>
