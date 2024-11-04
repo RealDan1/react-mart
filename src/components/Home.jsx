@@ -59,7 +59,7 @@ function Home() {
                 </section>
             </div>
 
-            {/* Login container on the right */}
+            {/* login container on the right */}
             {isLoggedIn ? (
                 <div className="welcome-paragraph">
                     <h1>Welcome {currentUser.username}</h1> {/* display welcome message when logged in */}

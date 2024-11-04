@@ -11,11 +11,11 @@ function Cart() {
     let totalPrice = 0;
 
     for (let i = 0; i < cartItems.length; i++) {
-        // Loop through each item in the cartItems array
+        // loop through each item in the cartItems array
         totalPrice += cartItems[i].price; // Add the price of each item to totalPrice
     }
 
-    // Round totalPrice to nearest two decimals
+    // round totalPrice to nearest two decimals
     totalPrice = Math.round(totalPrice * 100) / 100;
 
     const handleShipmentChange = (e) => {
@@ -47,7 +47,7 @@ function Cart() {
                         </div>
                     )}
 
-                    {/* Shipment Selection */}
+                    {/* shipment selection */}
                     {cartItems.length > 0 && (
                         <div className="shipment-section">
                             <h3>Choose Your Shipment Method</h3>
@@ -63,7 +63,7 @@ function Cart() {
                         </div>
                     )}
 
-                    {/* Modal for Shipment Help */}
+                    {/* modal for shipment help */}
                     {showModal && <DeliveryModal onClose={toggleModal} />}
                 </>
             )}
