@@ -20,7 +20,7 @@ ReactMart is an e-commerce web application built with React. The app lets users 
     Visit the "Products" page to see a list of available items. Each product shows its title, price, and description. Add items to your cart with the “Add to Cart” button.
 
 -   **Shopping Cart**:
-    Access your cart through the “Cart” page. Here, you’ll see all items added, with a total price calculated at the bottom. You can also choose your preferred shipment method.
+    Access your cart through the “Cart” page. It functions as a regular cart, and you can view the total at the bottom. You can also choose your preferred shipment method.
 
 -   **Register/Login**:
     For a customized experience, you can register or log in with a username and password. The login form is pre-filled with a sample account: `Username: JamesMay`, `Password: 12345`.

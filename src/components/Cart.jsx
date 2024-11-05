@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Card, Button } from 'react-bootstrap';
 import DeliveryModal from './DeliveryModal';
+import { clearCart } from '../store/cartSlice';
 
 function Cart() {
+    const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cart); // get cart items from redux
     const [shipmentMethod, setShipmentMethod] = useState(''); // state for selected shipment method
     const [showModal, setShowModal] = useState(false); // state for controlling the modal visibility
 
     let totalPrice = 0;
-
     for (let i = 0; i < cartItems.length; i++) {
-        // loop through each item in the cartItems array
         totalPrice += cartItems[i].price; // Add the price of each item to totalPrice
     }
-
-    // round totalPrice to nearest two decimals
-    totalPrice = Math.round(totalPrice * 100) / 100;
+    totalPrice = Math.round(totalPrice * 100) / 100; // Round to two decimals
 
     const handleShipmentChange = (e) => {
         setShipmentMethod(e.target.value);
@@ -24,6 +22,10 @@ function Cart() {
 
     const toggleModal = () => {
         setShowModal(!showModal);
+    };
+
+    const handleClearCart = () => {
+        dispatch(clearCart()); // Clear cart items by dispatching action
     };
 
     return (
@@ -47,7 +49,7 @@ function Cart() {
                         </div>
                     )}
 
-                    {/* shipment selection */}
+                    {/* Shipment Selection */}
                     {cartItems.length > 0 && (
                         <div className="shipment-section">
                             <h3>Choose Your Shipment Method</h3>
@@ -63,8 +65,20 @@ function Cart() {
                         </div>
                     )}
 
-                    {/* modal for shipment help */}
+                    {/* Modal for Shipment Help */}
                     {showModal && <DeliveryModal onClose={toggleModal} />}
+
+                    {/* Clear Cart Button */}
+                    <Button variant="danger" className="clear-cart-button" onClick={handleClearCart}>
+                        Clear Cart
+                    </Button>
+
+                    {/* Checkout Button */}
+                    {totalPrice > 0 && (
+                        <Button variant="primary" className="checkout-button">
+                            Checkout
+                        </Button>
+                    )}
                 </>
             )}
         </div>

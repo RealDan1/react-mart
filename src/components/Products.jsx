@@ -26,16 +26,15 @@ function Products() {
                             src={item.src}
                             alt={`${item.title} image`}
                             style={{ maxWidth: '100%', maxHeight: 'auto' }}
+                            // had to add inline styles to override bootstrap defaults
                         />{' '}
-                        {/* product image */}
                         <Card.Body>
-                            <Card.Title>{item.title}</Card.Title> {/* product title */}
-                            <Card.Text>Price: R{item.price}</Card.Text> {/* price */}
-                            <Card.Text>{item.description}</Card.Text> {/* description */}
+                            <Card.Title>{item.title}</Card.Title>
+                            <Card.Text>Price: R{item.price}</Card.Text>
+                            <Card.Text>{item.description}</Card.Text>
                             <Button variant="primary" onClick={() => handleAddToCart(item)}>
                                 Add to Cart
                             </Button>{' '}
-                            {/* add to cart */}
                         </Card.Body>
                     </Card>
                 ))}
