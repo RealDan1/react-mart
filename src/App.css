@@ -220,6 +220,10 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
+.checkout-button:hover {
+    background-color: #0b5ed7 !important;
+}
+
 /* Shipment Section */
 /* ============================================ */
 .shipment-section {
