@@ -22,8 +22,7 @@ function Home() {
                     <p>
                         Based in Cape Town, South Africa, ReactMart is your premier online destination for quality
                         electronics and lifestyle products. We pride ourselves on a curated selection of the latest
-                        gadgets, top-notch customer service, and lightning-fast delivery. Whether you’re shopping for
-                        high-performance headphones or the latest in fitness tracking tech, ReactMart has you covered.
+                        gadgets, top-notch customer service, and lightning-fast delivery. ReactMart has you covered.
                     </p>
                 </section>
 
@@ -49,23 +48,21 @@ function Home() {
                     </div>
                     <div className="review">
                         <p>
-                            <i>
-                                "As a Cape Town local, it’s great to support a homegrown business. The shopping
-                                experience is so smooth and reliable."
-                            </i>{' '}
-                            - Megan R.
+                            <i>"Support this local business! The shopping experience is so smooth and reliable."</i> -
+                            Megan R.
                         </p>
                     </div>
                 </section>
             </div>
 
-            {/* login container on the right */}
+            {/* login container on the right - only displayed if logged in*/}
             {isLoggedIn ? (
                 <div className="welcome-paragraph">
-                    <h1>Welcome {currentUser.username}</h1> {/* display welcome message when logged in */}
+                    <h1>Welcome {currentUser.username}</h1>
                 </div>
             ) : (
                 <div className="login-container">
+                    {/* else show login if not logged in */}
                     <label htmlFor="login-input-username">Username:</label> {/* input for user username */}
                     <input
                         id="login-input-username"
@@ -73,7 +70,7 @@ function Home() {
                         value={userInputUsername}
                         onChange={(e) => setUserInputUsername(e.target.value)} // update state with entered username
                     />
-                    <label htmlFor="login-input-password">Password:</label> {/* input for password */}
+                    <label htmlFor="login-input-password">Password:</label>
                     <input
                         id="login-input-password"
                         type="password"

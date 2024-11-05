@@ -1,6 +1,6 @@
 # ReactMart
 
-ReactMart is a beginner-friendly e-commerce web application built with React. The app lets users browse products, add them to their cart, choose a shipment method, and register or log in to manage their shopping experience. It’s designed for a smooth and intuitive shopping experience.
+ReactMart is an e-commerce web application built with React. The app lets users browse products, add them to their cart, choose a shipment method, and register or log in. It’s designed for a smooth and intuitive shopping experience.
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ ReactMart is a beginner-friendly e-commerce web application built with React. Th
 ## Using the App
 
 -   **Browse Products**:
-    Visit the "Products" page to see a list of available items. Each product shows its title, price, and description. You can add items to your cart with the “Add to Cart” button.
+    Visit the "Products" page to see a list of available items. Each product shows its title, price, and description. Add items to your cart with the “Add to Cart” button.
 
 -   **Shopping Cart**:
     Access your cart through the “Cart” page. Here, you’ll see all items added, with a total price calculated at the bottom. You can also choose your preferred shipment method.
@@ -35,5 +35,3 @@ ReactMart is a beginner-friendly e-commerce web application built with React. Th
 
 -   **Bootstrap**:
     Provides styling and layout for the components, giving ReactMart a clean and responsive design.
-
-Enjoy exploring ReactMart and happy shopping!
