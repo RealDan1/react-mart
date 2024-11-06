@@ -4,13 +4,13 @@ ReactMart is an e-commerce web application built with React. The app lets users 
 
 ## Getting Started
 
-1. **Install dependencies**:
-   Make sure to install the required dependencies in bash.
+1.  **Install dependencies**:
+    Make sure to install the required dependencies in bash.
 
     npm install
 
-2. **Run the server**:
-   Start the node server in bash
+2.  **Run the server**:
+    Start the node server in bash
 
     npm start
 
