@@ -5,6 +5,8 @@ import React from 'react';
 function Header() {
     const { currentUser, isLoggedIn } = useSelector((state) => state.user); // get current user and login state from Redux
 
+    //Add footer
+
     return (
         <header className="header">
             <div className="logo-user">
