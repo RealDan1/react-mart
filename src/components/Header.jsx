@@ -15,6 +15,8 @@ function Header() {
             </div>
 
             {/* show welcome and username if user is logged in */}
+
+            {/* routing with react router */}
             <nav>
                 <ul>
                     <li>
